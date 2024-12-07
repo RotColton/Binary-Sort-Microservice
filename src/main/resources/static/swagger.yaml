@@ -1,0 +1,46 @@
+openapi: 3.0.1
+info:
+  title: Binary Sort Service API
+  description: API to sort numbers based on binary representation.
+  version: "1.0"
+  servers:
+    - url: http://localhost:8080
+paths:
+  /binary-sort:
+    post:
+      summary: Sorts a list of integers by the number of ones in their binary representation.
+      tags:
+        - Binary Numbers
+      requestBody:
+        description: List of integers to be sorted.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: integer
+            example: [7, 2, 1, 9, 5, 3, 8, 25, 42]
+      responses:
+        '200':
+          description: Sorted list of integers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: integer
+              example: [1, 2, 8, 3, 5, 9, 7, 25, 42]
+        '400':
+          description: Bad Request - Invalid input data (e.g., empty list or non-integer values)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+              example:
+                error: "Bad Request"
+                message: "The input list is empty or contains non-integer values."
