@@ -1,11 +1,12 @@
 # Binary-Sort-Microservice
+
 API to sort numbers based on binary representation.
 
-# Binary Representation Sorting Microservice
+## Binary Representation Sorting Microservice
 
 This is a **Java** microservice that takes a list of integers and returns the list sorted based on the number of ones in the binary representation of each number.
 
-## Description
+### Description
 
 - The microservice accepts a list of integers as input.
 - The numbers are sorted by the number of ones (`1`) in their binary representation.
@@ -17,11 +18,13 @@ This is a **Java** microservice that takes a list of integers and returns the li
 
 ```json
 [7, 2, 1, 9, 5, 3, 8, 25, 42]
+```
 
 **Output:**
 
 ```json
 [1, 2, 8, 3, 5, 9, 7, 25, 42]
+```
 
 ### Binary Representation of Numbers
 
@@ -44,4 +47,6 @@ This is a **Java** microservice that takes a list of integers and returns the li
 ### Swagger UI Documentation
 
 Access the API documentation at: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
+
 
