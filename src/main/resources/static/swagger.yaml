@@ -19,6 +19,9 @@ paths:
               type: array
               items:
                 type: integer
+              minItems: 1
+              maxItems: 50
+              description: "Array of integers to be sorted. Maximum 50 integers, each must be a three-digit number."
             example: [7, 2, 1, 9, 5, 3, 8, 25, 42]
       responses:
         '200':
@@ -31,7 +34,7 @@ paths:
                   type: integer
               example: [1, 2, 8, 3, 5, 9, 7, 25, 42]
         '400':
-          description: Bad Request - Invalid input data (e.g., empty list or non-integer values)
+          description: Invalid input
           content:
             application/json:
               schema:
@@ -39,8 +42,20 @@ paths:
                 properties:
                   error:
                     type: string
-                  message:
-                    type: string
-              example:
-                error: "Bad Request"
-                message: "The input list is empty or contains non-integer values."
+              examples:
+                emptyList:
+                  summary: Empty list
+                  value:
+                    error: "Input array must not be empty."
+                invalidSize:
+                  summary: Exceeds maximum size
+                  value:
+                    error: "Input must contain at most 50 integers."
+                invalidType:
+                  summary: Non-integer elements
+                  value:
+                    error: "Input array must contain only integers."
+                invalidValue:
+                  summary: Invalid values
+                  value:
+                    error: "Each integer must be a three-digit number."
