@@ -61,7 +61,6 @@ public class BinarySorterServiceTest {
         assertThrows(IllegalArgumentException.class, () -> binarySorterService.sortByBinaryRepresentation(null), EMPTY_LIST);
     }
 
-
     //TODO agregar el comportamiento al readme
     @Test
     public void testSortBinaryRepresentation_ExceedsMaxAllowedSize() {
